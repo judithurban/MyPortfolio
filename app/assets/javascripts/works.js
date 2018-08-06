@@ -1,0 +1,23 @@
+var works = [
+  {title: "Postcard Designs",
+  pic: "img/works/glueck_zu_3_1.jpg",
+  URL: "img/works/glueck_zu_3_1_L.jpg"},
+  {title: "Speak up for Peace",
+  pic: "img/works/bachelor_1.jpg",
+  URL: "img/works/bachelor_1_L.jpg"},
+  {title: "Synaesthesia",
+  pic: "img/works/master_1.jpg",
+  URL: "img/works/master_1_L.jpg"},
+  {title: "Peerigon Usecases",
+  pic: "img/works/peerigon_2.jpg",
+  URL: "img/works/peerigon_2_L.jpg"},
+  {title: "Postcard Designs",
+  pic: "img/works/glueck_zu_2.jpg",
+  URL: "img/works/glueck_zu_2_L.jpg"},
+  {title: "Poster Illustration",
+  pic: "img/works/poster_bahn_1.jpg",
+  URL: "img/works/poster_bahn_1_L.jpg"},
+  {title: "Website Design",
+  pic: "img/works/peerigon_1.jpg",
+  URL: "img/works/peerigon_1_L.jpg"}
+];

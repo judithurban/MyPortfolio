@@ -1,3 +1,519 @@
 // Place all the styles related to the simple_pages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+// 1. Custom variables and variable overwrites.
+@function randomNum($min, $max) {
+  $rand: random();
+  $randomNum: $min + floor($rand * (($max - $min) + 1));
+
+  @return $randomNum;
+};
+
+$pf-span: span 8;
+$rot-pos: 2;
+$rot-neg: -2;
+
+
+
+
+
+.foo {
+  font-size: #{randomNum(5, 10)}px;
+}
+
+// 3. Custom mixin overwrites.
+@mixin hook-card() { color: #000; }
+
+// 4. Import uiKit.
+@import "uikit";
+
+
+* {
+  box-sizing: border-box;
+}
+
+
+/* Typography */
+
+
+body,
+a,
+h1,
+h2,
+h3,
+h4 {
+  color: black;
+  font-family: "Rubik", Helvetica, Arial, sans-serif;
+  font-weight: 500;
+}
+
+
+p,
+html,
+h5 {
+  color: black;
+  font-family: "Roboto Mono", monospace;
+  font-size: 0.98em;
+  font-weight: 300;
+}
+
+
+
+a {
+  box-shadow: inset 0 -1px 0 0 #cfcfcf;
+  color: black;
+  text-decoration: none;
+  transition: 500ms box-shadow;
+}
+
+h2 {
+  font-size: 1.8em;
+  line-height: 1.2em;
+}
+
+h3 {
+  font-size: 1.2em;
+}
+
+h4 {
+  font-size: 1.1rem;
+}
+
+a:focus,
+a:hover {
+  box-shadow: inset 0 -0.8em 0 0 #faee88;
+  color: black;
+  text-decoration: none;
+}
+
+ul {
+  -webkit-padding-start: 0;
+}
+
+li {
+  display: inline;
+  list-style-type: none;
+}
+
+::selection {
+  background: #ffe600;
+  color: black;
+  text-shadow: none;
+}
+
+
+/* Header */
+
+
+nav {
+  background-color: rgba(255,255,255,0.9);
+  border-bottom: 1px solid #cfcfcf;
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  z-index: 1000;
+}
+
+.header-items-all {
+  align-items: center;
+  display: flex;
+  justify-content: flex-end;
+  margin: 0 auto;
+  width: 80vw;
+}
+
+#logo {
+  box-shadow: none;
+  height: 60px;
+  margin-right: auto;
+  padding: 5px;
+  width: 60px;
+}
+
+
+nav ul {
+  margin: 0;
+  padding: 0;
+}
+
+nav li {
+  border-bottom: 2px solid transparent;
+  display: inline-block;
+  list-style-type: none;
+  padding: 30px 10px;
+}
+
+.navbar-link-toggle {
+  display: none;
+}
+
+nav li:target {
+  border-bottom: 2px solid black;
+}
+
+nav li:target a {
+  box-shadow: inset 0 -0.3em 0 0 #faee88;
+  color: black;
+}
+
+.uk-active a {
+  box-shadow: inset 0 -0.3em 0 0 #faee88;
+  color: black;
+}
+
+@media (max-width: 768px) {
+  .header-items-all {
+    flex-wrap: wrap;
+    width: 100vw;
+  }
+
+  .navbar-link-toggle {
+    cursor: pointer;
+    display: initial;
+    font-size: 1.5em;
+    order: 1;
+    padding-right: 5vw;;
+  }
+
+  .header-items-list {
+    align-items: stretch;
+    flex-direction: column;
+    order: 2;
+    width: 100vw;
+  }
+
+  .header-items-list-hidden {
+    display: none;
+  }
+
+  nav li {
+    border-top: 1px solid #cfcfcf;
+    display: flex;
+    padding: 13px 20px;
+  }
+
+  #logo {
+    margin-left: 15px;
+  }
+}
+
+
+
+/* Accordion */
+
+
+.accordion-title:focus,
+.accordion-title:hover {
+  color: black;
+}
+
+.accordion-content {
+  margin-bottom: 40px;
+}
+
+
+/* Carousel */
+
+
+.uk-slider-container>a {
+  border-bottom: unset;
+  box-shadow: unset;
+}
+
+
+/* Work Portfolio */
+
+
+.img-wrap {
+  border: 5px solid white;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+}
+
+.img-wrap img {
+  align-self: center;
+  transition: transform 2s;
+  /*needed so images don't stretch*/
+}
+
+.img-wrap img:hover {
+  transform: scale(1.02);
+}
+
+.info {
+  bottom: 10px;
+  display: none;
+  pointer-events: none;
+  position: absolute;
+  text-align: center;
+  text-shadow: 0 0 60px white, 0 0 10px white, 0 0 20px white, 0 0 60px white;
+}
+
+.portfolio-card {
+  height: 80vh;
+}
+
+#portfolio-selected-project {
+  padding: 5px;
+}
+
+
+/* Forms */
+
+.uk-checkbox,
+.uk-input,
+.uk-radio,
+.uk-select,
+.uk-textarea {
+  font-family: "Roboto Mono", monospace;
+}
+
+.uk-input:focus,
+.uk-select:focus,
+.uk-textarea:focus {
+  border-color: mediumturquoise;
+}
+
+.form-message {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+}
+
+
+/*Modal*/
+
+#portfolio-head {
+  display: inline-block;
+}
+
+.row-wrap-inline {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+
+#modal-embed {
+  min-height: 65vh;
+  width: 100%;
+}
+
+
+/* General */
+
+
+body {
+  position: relative;
+}
+
+
+footer {
+  background-color: #191919;
+  color: white;
+  display: flex;
+  justify-content: flex-end;
+}
+
+footer>*,
+#client-list span {
+  display: inline-block;
+  margin: 10px;
+}
+
+.anchor {
+  padding-bottom: 15vh;
+  padding-top: 15vh;
+}
+
+
+.button {
+  background-color: white;
+  text-transform: none;
+}
+
+.button:active,
+.button:hover,
+.button:focus,
+#portfolio a {
+  background-color: white;
+  box-shadow: unset;
+  text-transform: none;
+}
+
+#about {
+  background-attachment: fixed;
+  background-image: url("../img/Judiths_Bugs_03_yellow.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#contact {
+  background-attachment: fixed;
+  background-image: url("../img/Judiths_Bugs_02_yellow.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+}
+
+@media (max-width: 767px) {
+  .anchor {
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 12vh;
+  }
+}
+
+
+@media (min-width: 480px) {
+  .container {
+    margin: 0 auto;
+    padding-left: 10vw;
+    padding-right: 10vw;
+    width: 100vw;
+  }
+}
+
+.uk-card-custom {
+  background-color: white;
+  border: 1px solid #cfcfcf;
+  box-shadow: unset;
+  color: black;
+}
+
+.uk-card-body {
+  padding: 20px 20px;
+}
+
+
+/* Map */
+
+
+#map {
+  height: 400px;
+  width: 100%;
+}
+
+
+/* Portfolio */
+
+.pf-section {
+  // Create new stacking context for prevboxes
+  position: relative;
+  z-index: 0;
+  display: grid;
+  grid-template-columns: repeat(15, 1fr);
+  grid-auto-rows: 40px;
+  width: 90vw;
+}
+
+.pf-section ::selection {
+  background: unset;
+  border: 1px solid #ffe600;
+}
+
+@media(max-width:720px) {
+  .pf-section  {
+    grid-auto-rows: 20px;
+  }
+}
+
+.pf-prevbox img {
+  min-height: 100%;
+
+}
+
+.pf-prevbox {
+  object-fit: contain;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  transition: transform ease-out 0.2s, box-shadow ease-out 0.2s;
+}
+
+#pf-prevbox-item1 {
+  grid-column: 1 / $pf-span;
+  grid-row: 1 / $pf-span;
+  transform:  rotate(randomNum($rot-neg, $rot-pos) + deg);
+}
+
+#pf-prevbox-item2 {
+  grid-column: $pf-span / -1;
+  grid-row: 4 / $pf-span;
+  transform: rotate(randomNum($rot-neg, $rot-pos) + deg);
+}
+
+#pf-prevbox-item3 {
+  grid-column: 2 / $pf-span;
+  grid-row: 7 /  $pf-span;
+  transform:  rotate(randomNum($rot-neg, $rot-pos) + deg);
+}
+
+#pf-prevbox-item4 {
+  grid-column: $pf-span / -2;
+  grid-row: 10 / $pf-span;
+  transform:  rotate(randomNum($rot-neg, $rot-pos) + deg);
+}
+
+#pf-prevbox-item5 {
+  grid-column: 1 / $pf-span;
+  grid-row: 15 /$pf-span;
+  transform: rotate(randomNum($rot-neg, $rot-pos) + deg);
+}
+
+.pf-prevbox:hover {
+  transform: scale(1.1) !important;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.pf-item {
+  display: none;
+  transition: transform ease-out 0.3s;
+  transform: scale(0.7);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right:0;
+  bottom: 0;
+}
+
+.pf-item-on {
+  display: block;
+  transform: scale(1);
+}
+
+.pf-project-box {
+  background-color: rgba(255, 255, 255, 0.95);
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+
+.pf-text-box {
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  margin: 20px auto 20px auto;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items:center;
+  text-align: center;
+}
+
+.pf-close-button {
+  border: none;
+  margin-left: auto;
+  position: sticky;
+  top: 0;
+  background-color: transparent;
+}
+
+.pf-close-button svg {
+  display: block;
+  height: 50px !important;
+  width: 50px !important;
+}
