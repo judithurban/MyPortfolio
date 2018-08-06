@@ -6,12 +6,13 @@
     <title>Judiths Portfolio</title>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBlaXHm--EpRXmMQrLBBQXadKU8L8RgXQ8&callback=initMap"
     defer></script>
-    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:300|Rubik:500" rel="stylesheet">    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:300|Rubik:500" rel="stylesheet">    
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script defer src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.6/js/uikit.min.js"></script>
-    <script defer src="js/uikit-icons.min.js"></script>
-  </head>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.10/js/uikit-icons.min.js"></script>
+</head>
 
 
   <body>
@@ -20,15 +21,17 @@
         <%= link_to image_tag("ju.svg"), root_path, {id: 'logo', alt: 'Judiths Logo'} %>
         <span class="navbar-link-toggle" uk-icon="icon: table" aria-hidden="true"></span>
         <ul class="header-items-list header-items-list-hidden" uk-scrollspy-nav="closest: li; scroll: true">
-          <li><%= link_to "home", root_path(:anchor => 'portfolio') %></li>
-          <li><%= link_to "about", root_path(:anchor => 'about') %></li>
-          <li><%= link_to "contact", root_path(:anchor => 'contact') %></li>
+          <li><%= link_to "home", root_path(:anchor => 'portfolio'), :"data-uk-smooth-scroll" => true %></li>
+          <li><%= link_to "about", root_path(:anchor => 'about'), :"data-uk-smooth-scroll" => true %></li>
+          <li><%= link_to "contact", root_path(:anchor => 'contact'), :"data-uk-smooth-scroll" => true %></li>
         </ul>
       </div>
     </nav>
-
-    <div class="uk-position-relative uk-visible-toggle uk-light" uk-slider="clsActivated: uk-transition-active; center: true">
-      <%= yield %>
+    <%= yield %>
     </div>
+
+    <footer>
+      <div>&copy; Judith Urban</div>
+    </footer>
   </body>
 </html>

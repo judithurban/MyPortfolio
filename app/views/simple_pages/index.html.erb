@@ -1,2 +1,19 @@
-<h1>SimplePages#index</h1>
-<p>Find me in app/views/simple_pages/index.html.erb</p>
+    <section class="jumbotron">
+      <h1>The art of bug whispering.</h1>
+      <p>
+        Hi! I'm Judith, artist and web developer. Tracking down the tasty bits in the jungle of information, I create engaging illustrative and interactive experiences.
+      </p>
+      <%= link_to "about", root_path(:anchor => 'about') %>
+    </section><!-- section -->
+
+    <div class="container anchor" id="about" uk-grid>
+      <%= render partial: "about" %>
+    </div><!-- end container -->
+
+    <div class="container anchor" id="faq">
+      <%= render partial: "faq" %>
+    </div> <!-- end container -->
+
+    <div class="container anchor" id="contact"uk-grid>
+      <%= render partial: "contact" %>
+    </div><!-- end container -->

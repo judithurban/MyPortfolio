@@ -1,9 +1,11 @@
+$(document).on('turbolinks:load', function(){
 // Smooth Scrolling
 
 var $root = $('html, body');
 
   $('.navbar-nav a').click(function onAnchorClick() {
     var href = $.attr(this, 'href');
+    console.log("Scroll");
 
     if (href != undefined && href != '#') {
 
@@ -66,10 +68,6 @@ $(".img-wrap").on("click", function (){
 ");
 });
 
-
-
-
-
 // Form Functions
 
 
@@ -105,6 +103,8 @@ $("#message-button").on("click",function() {
   }
   
 );
+
+});
 
 //Google Map
 

@@ -2,6 +2,8 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+@import "uikit";
+
 // 1. Custom variables and variable overwrites.
 @function randomNum($min, $max) {
   $rand: random();
@@ -18,9 +20,6 @@ $rot-neg: -2;
 
 
 
-.foo {
-  font-size: #{randomNum(5, 10)}px;
-}
 
 // 3. Custom mixin overwrites.
 @mixin hook-card() { color: #000; }
@@ -198,6 +197,23 @@ nav li:target a {
   }
 }
 
+/* Jumbotron */
+
+.jumbotron {
+  width: 80vw;
+  height: 90vh;
+  display: flex;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-left: auto;
+  margin-right: auto;
+
+  @media (min-width: 720px) {
+    width: 60vw;
+  }
+}
 
 
 /* Accordion */
