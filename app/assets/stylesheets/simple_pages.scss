@@ -2,8 +2,6 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-@import "uikit";
-
 // 1. Custom variables and variable overwrites.
 @function randomNum($min, $max) {
   $rand: random();
@@ -16,7 +14,7 @@ $pf-span: span 8;
 $rot-pos: 2;
 $rot-neg: -2;
 
-
+@keyframes jump { 0% { top: 0; } 50% { top: 10px; } 100% { top: 0; } }
 
 
 
@@ -200,19 +198,15 @@ nav li:target a {
 /* Jumbotron */
 
 .jumbotron {
-  width: 80vw;
-  height: 90vh;
+  padding: 0 10vw 0 10vw;
+  height: 100vh;
+  width: 100vw;
   display: flex;
-  align-content: center;
-  align-items: center;
+  flex-direction: column;
   justify-content: center;
+  text-align: center;
   flex-wrap: wrap;
-  margin-left: auto;
-  margin-right: auto;
-
-  @media (min-width: 720px) {
-    width: 60vw;
-  }
+  background-color: #ffe600;
 }
 
 
@@ -528,8 +522,16 @@ footer>*,
   background-color: transparent;
 }
 
-.pf-close-button svg {
+.big-icon svg {
   display: block;
   height: 50px !important;
   width: 50px !important;
+}
+
+.moving-icon { 
+  position: relative; 
+  margin: 0 auto; 
+  text-align: center; 
+  animation: jump 3s infinite;
+  :hover { color: white }
 }

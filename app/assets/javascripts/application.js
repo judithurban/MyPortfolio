@@ -14,6 +14,4 @@
 //= require activestorage
 //= require turbolinks
 //= require jquery3
-//= require uikit
-//= require uikit-components
 //= require_tree .

@@ -1,24 +1,5 @@
 $(document).on('turbolinks:load', function(){
-// Smooth Scrolling
 
-var $root = $('html, body');
-
-  $('.navbar-nav a').click(function onAnchorClick() {
-    var href = $.attr(this, 'href');
-    console.log("Scroll");
-
-    if (href != undefined && href != '#') {
-
-      $root.animate({
-        scrollTop: $(href).offset().top
-      }, 500, function () {
-        window.location.hash = href;
-      });
-
-    }
-
-    return false;
-  });
 
 // Hide Header 
 

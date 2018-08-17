@@ -6,12 +6,17 @@
     <title>Judiths Portfolio</title>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBlaXHm--EpRXmMQrLBBQXadKU8L8RgXQ8&callback=initMap"
     defer></script>
-    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:300|Rubik:500" rel="stylesheet">    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:300|Rubik:500" rel="stylesheet">
+     <!-- UIkit CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.10/css/uikit.min.css" />
+    <!-- UIkit JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.10/js/uikit.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.10/js/uikit-icons.min.js"></script>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.6/js/uikit.min.js"></script>
-    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.10/js/uikit-icons.min.js"></script>
+
+
 </head>
 
 
@@ -21,7 +26,7 @@
         <%= link_to image_tag("ju.svg"), root_path, {id: 'logo', alt: 'Judiths Logo'} %>
         <span class="navbar-link-toggle" uk-icon="icon: table" aria-hidden="true"></span>
         <ul class="header-items-list header-items-list-hidden" uk-scrollspy-nav="closest: li; scroll: true">
-          <li><%= link_to "home", root_path(:anchor => 'portfolio'), :"data-uk-smooth-scroll" => true %></li>
+          <li><%= link_to "portfolio", root_path(:anchor => 'portfolio'), :"data-uk-smooth-scroll" => true %></li>
           <li><%= link_to "about", root_path(:anchor => 'about'), :"data-uk-smooth-scroll" => true %></li>
           <li><%= link_to "contact", root_path(:anchor => 'contact'), :"data-uk-smooth-scroll" => true %></li>
         </ul>
