@@ -1,29 +1,25 @@
-// Place all the styles related to the simple_pages controller here.
+// Place all the styles related to the home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-// 1. Custom variables and variable overwrites.
-@function randomNum($min, $max) {
-  $rand: random();
-  $randomNum: $min + floor($rand * (($max - $min) + 1));
 
-  @return $randomNum;
-};
-
-$pf-span: span 8;
-$rot-pos: 2;
-$rot-neg: -2;
-
-@keyframes jump { 0% { top: 0; } 50% { top: 10px; } 100% { top: 0; } }
-
-
+@keyframes bounce {
+	0%, 12%, 26%, 100% {
+    transform: translateY(0);
+  }
+	6% {
+    transform: translateY(-20%);
+  }
+	18% {
+    transform: translateY(-20%);
+  }
+}
 
 
 // 3. Custom mixin overwrites.
 @mixin hook-card() { color: #000; }
 
-// 4. Import uiKit.
-@import "uikit";
+
 
 
 * {
@@ -45,14 +41,19 @@ h4 {
   font-weight: 500;
 }
 
+h1 {
+  font-size: 2em;
+}
+
 
 p,
 html,
 h5 {
   color: black;
   font-family: "Roboto Mono", monospace;
-  font-size: 0.98em;
+  font-size: 1.1em;
   font-weight: 300;
+  margin-top: 0;
 }
 
 
@@ -109,7 +110,7 @@ nav {
   position: fixed;
   top: 0;
   width: 100vw;
-  z-index: 1000;
+  z-index: 20;
 }
 
 .header-items-all {
@@ -197,6 +198,7 @@ nav li:target a {
 
 /* Jumbotron */
 
+
 .jumbotron {
   padding: 0 10vw 0 10vw;
   height: 100vh;
@@ -207,6 +209,23 @@ nav li:target a {
   text-align: center;
   flex-wrap: wrap;
   background-color: #ffe600;
+}
+
+.arrow svg {
+  height: 40px;
+  width: 40px;
+}
+
+.bounce {
+  animation: bounce 3.5s infinite;
+  box-shadow: unset;
+    text-decoration: none;
+    transition: none;
+}
+
+.bounce:hover {
+  box-shadow: none;
+  color: white;
 }
 
 
@@ -284,7 +303,7 @@ nav li:target a {
 .uk-input:focus,
 .uk-select:focus,
 .uk-textarea:focus {
-  border-color: mediumturquoise;
+  border-color: #faee88;
 }
 
 .form-message {
@@ -355,14 +374,12 @@ footer>*,
 
 #about {
   background-attachment: fixed;
-  background-image: url("../img/Judiths_Bugs_03_yellow.jpg");
   background-repeat: no-repeat;
   background-size: cover;
 }
 
 #contact {
   background-attachment: fixed;
-  background-image: url("../img/Judiths_Bugs_02_yellow.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   display: flex;
@@ -407,131 +424,3 @@ footer>*,
 }
 
 
-/* Portfolio */
-
-.pf-section {
-  // Create new stacking context for prevboxes
-  position: relative;
-  z-index: 0;
-  display: grid;
-  grid-template-columns: repeat(15, 1fr);
-  grid-auto-rows: 40px;
-  width: 90vw;
-}
-
-.pf-section ::selection {
-  background: unset;
-  border: 1px solid #ffe600;
-}
-
-@media(max-width:720px) {
-  .pf-section  {
-    grid-auto-rows: 20px;
-  }
-}
-
-.pf-prevbox img {
-  min-height: 100%;
-
-}
-
-.pf-prevbox {
-  object-fit: contain;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  transition: transform ease-out 0.2s, box-shadow ease-out 0.2s;
-}
-
-#pf-prevbox-item1 {
-  grid-column: 1 / $pf-span;
-  grid-row: 1 / $pf-span;
-  transform:  rotate(randomNum($rot-neg, $rot-pos) + deg);
-}
-
-#pf-prevbox-item2 {
-  grid-column: $pf-span / -1;
-  grid-row: 4 / $pf-span;
-  transform: rotate(randomNum($rot-neg, $rot-pos) + deg);
-}
-
-#pf-prevbox-item3 {
-  grid-column: 2 / $pf-span;
-  grid-row: 7 /  $pf-span;
-  transform:  rotate(randomNum($rot-neg, $rot-pos) + deg);
-}
-
-#pf-prevbox-item4 {
-  grid-column: $pf-span / -2;
-  grid-row: 10 / $pf-span;
-  transform:  rotate(randomNum($rot-neg, $rot-pos) + deg);
-}
-
-#pf-prevbox-item5 {
-  grid-column: 1 / $pf-span;
-  grid-row: 15 /$pf-span;
-  transform: rotate(randomNum($rot-neg, $rot-pos) + deg);
-}
-
-.pf-prevbox:hover {
-  transform: scale(1.1) !important;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-}
-
-.pf-item {
-  display: none;
-  transition: transform ease-out 0.3s;
-  transform: scale(0.7);
-  position: absolute;
-  top: 0;
-  left: 0;
-  right:0;
-  bottom: 0;
-}
-
-.pf-item-on {
-  display: block;
-  transform: scale(1);
-}
-
-.pf-project-box {
-  background-color: rgba(255, 255, 255, 0.95);
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: column;
-}
-
-.pf-text-box {
-  border-top: 1px solid black;
-  border-bottom: 1px solid black;
-  margin: 20px auto 20px auto;
-  padding: 10px;
-  display: flex;
-  flex-direction: column;
-  align-items:center;
-  text-align: center;
-}
-
-.pf-close-button {
-  border: none;
-  margin-left: auto;
-  position: sticky;
-  top: 0;
-  background-color: transparent;
-}
-
-.big-icon svg {
-  display: block;
-  height: 50px !important;
-  width: 50px !important;
-}
-
-.moving-icon { 
-  position: relative; 
-  margin: 0 auto; 
-  text-align: center; 
-  animation: jump 3s infinite;
-  :hover { color: white }
-}

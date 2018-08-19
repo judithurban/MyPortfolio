@@ -1,0 +1,13 @@
+// 1. Custom variables and variable overwrites.
+@function randomNum($min, $max) {
+  $rand: random();
+  $randomNum: $min + floor($rand * (($max - $min) + 1));
+
+  @return $randomNum;
+};
+
+
+$pf-span-ls : span 8;
+$pf-span-pt : span 4;
+$rot-pos : 2;
+$rot-neg : -2;

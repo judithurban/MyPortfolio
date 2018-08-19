@@ -1,0 +1,9 @@
+    <section class="pf-section">
+    <% @projects.each do |project| %>
+      <%= image_tag(project.preview_image, class: "pf-prevbox", id:"pf-prevbox-item#{project.id}", draggable:"false", data: { link: "pf-item#{project.id}", url: project.url}) %>
+    <% end %>
+    </section>
+    <% @projects.each do |project| %>
+    <%= render partial: 'pf-item', locals: {project: project} %>
+    <% end %>
+    <%= javascript_include_tag 'projects' %>

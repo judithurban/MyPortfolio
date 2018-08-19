@@ -1,17 +1,35 @@
+
+// Hide Header 
+
+function classToggle() {
+  const list = document.querySelector('.header-items-list')
+  list.classList.toggle('header-items-list-hidden');
+}
+
+document.querySelector('.navbar-link-toggle')
+  .addEventListener('click', classToggle);
+
+
+
 var z = 1
 
 var closeButtons = document.querySelectorAll(".pf-close-button");
 var images = document.querySelectorAll(".pf-prevbox");
+window.history.pushState(null, "", window.location.pathname);
+
 
 function onImageEnter() {
   images.forEach(img => {
     if (img === this) {
       img.style.zIndex = images.length - 1;
+      img.style.cursor = "drag"
     } else {
       const oldZ = img.style.zIndex || 0;
       const newZ = Math.max(oldZ - 1, 0);
 
       img.style.zIndex = newZ;
+      img.style.cursor = "grab"
+
     }
   });
 }
@@ -29,6 +47,8 @@ function onMouseDown() {
   //ask for the initial offset values. If there aren't any, set to 0
   var countDeltaX = Number(img.dataset.countDeltaX) || 0;
   var countDeltaY = Number(img.dataset.countDeltaY) || 0;
+  img.style.cursor = "grabbing"
+
 
   function onMouseMove(event) {
     if (lastClientX !== null) {
@@ -57,6 +77,7 @@ function onMouseDown() {
   function onMouseUp() {
     document.removeEventListener("mousemove", onMouseMove);
     document.removeEventListener("mouseup", onMouseUp);
+    img.style.cursor = "pointer"
   }
 
   document.addEventListener("mousemove", onMouseMove);
@@ -66,26 +87,42 @@ function onMouseDown() {
 function openProject() {
   var img = this;
 
+  window.scrollTo(0, 0);
+
   if (img.dataset.hasBeenMoved === "true") {
     img.dataset.hasBeenMoved = "false";
   }
   else {
     console.log("openProject");
     var linkName = img.dataset.link;
+    var url = img.dataset.url;
     document.getElementById(linkName).classList.add("pf-item-on");
+    window.history.pushState(null, "", "/projects/" + url);
   }
+
 }
 
 function closeProject () {
   document.querySelectorAll(".pf-item").forEach (itm => {
     itm.classList.remove("pf-item-on");
+    window.history.pushState(null, "", "/projects");
   });
+}
+
+function goBack() {
+  if (window.location.pathname === "/projects") {
+    document.querySelectorAll(".pf-item").forEach (itm => {
+      itm.classList.remove("pf-item-on");
+    });
+  }
+
 }
 
 images.forEach(img => {
   //change z-index on hover
   img.addEventListener("mouseenter", onImageEnter);
   img.addEventListener("touchstart", onImageEnter);
+  img.addEventListener("dragstart", function(){return false;});
   //drag and drop effect: first handler
   img.addEventListener("mousedown", onMouseDown);
   img.addEventListener("click", openProject);
@@ -97,3 +134,6 @@ images.forEach(img => {
 closeButtons.forEach (btn => {
   btn.addEventListener ("click", closeProject);
 });
+
+
+window.addEventListener("popstate", goBack);

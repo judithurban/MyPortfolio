@@ -4,8 +4,6 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <title>Judiths Portfolio</title>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBlaXHm--EpRXmMQrLBBQXadKU8L8RgXQ8&callback=initMap"
-    defer></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:300|Rubik:500" rel="stylesheet">
      <!-- UIkit CSS -->
@@ -26,7 +24,7 @@
         <%= link_to image_tag("ju.svg"), root_path, {id: 'logo', alt: 'Judiths Logo'} %>
         <span class="navbar-link-toggle" uk-icon="icon: table" aria-hidden="true"></span>
         <ul class="header-items-list header-items-list-hidden" uk-scrollspy-nav="closest: li; scroll: true">
-          <li><%= link_to "portfolio", root_path(:anchor => 'portfolio'), :"data-uk-smooth-scroll" => true %></li>
+          <li><%= link_to "portfolio", projects_path %></li>
           <li><%= link_to "about", root_path(:anchor => 'about'), :"data-uk-smooth-scroll" => true %></li>
           <li><%= link_to "contact", root_path(:anchor => 'contact'), :"data-uk-smooth-scroll" => true %></li>
         </ul>

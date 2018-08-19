@@ -1,0 +1,15 @@
+
+<div id="pf-item<%= project.id %>" class="pf-item">
+  <div class="pf-project-box">
+    <button class="pf-close-button"><span uk-icon="icon: close" class="uk-icon-large"></span></button>
+    <div class="pf-text-box uk-width-2-3@m">
+      <h2><%= project.title %></h2>
+      <p><%= project.description %></p>
+    </div>
+    <div class="pf-image-box">
+    <% project.images.each do |image| %>
+      <%= image_tag(image.url, class: "pf-image #{image.css_class}", alt:image.title) %>
+    <% end %>
+    </div>
+  </div>
+</div>

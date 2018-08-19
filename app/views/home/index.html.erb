@@ -3,7 +3,7 @@
       <p>
         Hi! I'm Judith, artist and web developer. I create engaging illustrative and interactive experiences.
       </p>
-      <span uk-icon="icon: chevron-down" class="big-icon moving-icon"></span>
+      <a href="/#about" uk-icon="icon: chevron-down" class="arrow bounce" data-uk-smooth-scroll="true"></a>
     </section><!-- section -->
 
     <div class="container anchor" id="about" uk-grid>
@@ -17,3 +17,6 @@
     <div class="container anchor" id="contact"uk-grid>
       <%= render partial: "contact" %>
     </div><!-- end container -->
+    <%= javascript_include_tag 'home' %>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBlaXHm--EpRXmMQrLBBQXadKU8L8RgXQ8&callback=initMap"
+    defer></script>
