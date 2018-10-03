@@ -60,19 +60,23 @@ function onMouseDown() {
       var deltaX = event.clientX - lastClientX;
       var deltaY = event.clientY - lastClientY;
 
-      console.log(deltaX, deltaY);
       //add up the offset values for the next static position
       countDeltaX += deltaX;
       countDeltaY += deltaY;
-      //dataset = box where we can save a value per image for knowing the offset values in the css for next time
-      //dataset always saves strings, if it's not a string anyway
-      img.dataset.countDeltaX = countDeltaX;
-      img.dataset.countDeltaY = countDeltaY;
       
-      img.dataset.hasBeenMoved = "true";
-      //save offset value of current position to css
-      img.style.left = countDeltaX + "px";
-      img.style.top =  countDeltaY + "px"
+      window.requestAnimationFrame(function () {
+        //dataset = box where we can save a value per image for knowing the offset values in the css for next time
+        //dataset always saves strings, if it's not a string anyway
+        img.dataset.countDeltaX = countDeltaX;
+        img.dataset.countDeltaY = countDeltaY;
+        
+        img.dataset.hasBeenMoved = "true";
+        //save offset value of current position to css
+
+        img.style.setProperty("--transform-transition-duration", "0s");
+        img.style.setProperty("--x", countDeltaX + "px");
+        img.style.setProperty("--y", countDeltaY + "px");
+      });
     }
     lastClientX = event.clientX;
     lastClientY = event.clientY;
@@ -82,6 +86,7 @@ function onMouseDown() {
     document.removeEventListener("mousemove", onMouseMove);
     document.removeEventListener("mouseup", onMouseUp);
     img.style.cursor = "pointer"
+    img.style.setProperty("--transform-transition-duration", "");
   }
 
   document.addEventListener("mousemove", onMouseMove);

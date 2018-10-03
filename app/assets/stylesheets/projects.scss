@@ -31,13 +31,18 @@
 }
 
 .pf-prevbox {
+  --rotate: 0deg;
+  --scale: 1;
+  --x: 0;
+  --y: 0;
   object-fit: contain;
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-  transition: transform ease-out 0.2s, box-shadow ease-out 0.2s;
+  transition: transform ease-out var(--transform-transition-duration, 0.2s), box-shadow ease-out 0.2s;
+  transform: translate(var(--x), var(--y)) rotate(var(--rotate)) scale(var(--scale));
 }
 
 .pf-prevbox::selection {
@@ -47,61 +52,61 @@
 #pf-prevbox-item1 {
   grid-column: 1 / $pf-span-ls;
   grid-row: 1 / $pf-span-ls;
-  transform:  rotate(randomNum($rot-neg, $rot-pos) + deg);
+  --rotate: #{randomNum($rot-neg, $rot-pos) + deg};
 }
 
 #pf-prevbox-item2 {
   grid-column: span 7 / -1;
   grid-row: 10;
-  transform: rotate(randomNum($rot-neg, $rot-pos) + deg);
+  --rotate: #{randomNum($rot-neg, $rot-pos) + deg};
 }
 
 #pf-prevbox-item3 {
   grid-column: 5 / $pf-span-pt;
   grid-row: 8;
-  transform:  rotate(randomNum($rot-neg, $rot-pos) + deg);
+  --rotate: #{randomNum($rot-neg, $rot-pos) + deg};
 }
 
 #pf-prevbox-item4 {
   grid-column: $pf-span-pt / -4;
   grid-row: 3;
-  transform:  rotate(randomNum($rot-neg, $rot-pos) + deg);
+  --rotate: #{randomNum($rot-neg, $rot-pos) + deg};
 }
 
 #pf-prevbox-item5 {
   grid-column: 2 /  $pf-span-ls;
   grid-row: 16;
-  transform: rotate(randomNum($rot-neg, $rot-pos) + deg);
+  --rotate: #{randomNum($rot-neg, $rot-pos) + deg};
 }
 
 #pf-prevbox-item6 {
   grid-column: $pf-span-pt / -4;
   grid-row: 18;
-  transform: rotate(randomNum($rot-neg, $rot-pos) + deg);
+  --rotate: #{randomNum($rot-neg, $rot-pos) + deg};
 }
 
 #pf-prevbox-item7 {
   grid-column: 4 / $pf-span-pt;
   grid-row: 24;
-  transform: rotate(randomNum($rot-neg, $rot-pos) + deg);
+  --rotate: #{randomNum($rot-neg, $rot-pos) + deg};
 }
 
 #pf-prevbox-item8 {
   grid-column: 1 / $pf-span-ls;
   grid-row: 30 / span 11;
-  transform: rotate(randomNum($rot-neg, $rot-pos) + deg);
+  --rotate: #{randomNum($rot-neg, $rot-pos) + deg};
 }
 
 #pf-prevbox-item9 {
   grid-column: 8 / $pf-span-pt;
   grid-row: 32 / span 11;
-  transform: rotate(randomNum($rot-neg, $rot-pos) + deg);
+  --rotate: #{randomNum($rot-neg, $rot-pos) + deg};
 }
 
 #pf-prevbox-item10 {
   grid-column: $pf-span-ls /-1;
   grid-row: 25;
-  transform: rotate(randomNum($rot-neg, $rot-pos) + deg);
+  --rotate: #{randomNum($rot-neg, $rot-pos) + deg};
 }
 
 /** MESSAGE **/
@@ -175,7 +180,7 @@
 
 
 .pf-prevbox:hover {
-  transform: scale(1.1) !important;
+  --scale: 1.1;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
