@@ -105,15 +105,21 @@
 }
 
 /** MESSAGE **/
-
-
-.fadeout {
-  opacity: 0;
-  transition: 2s opacity;
-  z-index: 20;
+@keyframes fadeout {
+  from {
+    opacity: 1;
+  }
+  99% {
+    top: 5vh;
+    opacity: 0;
+  }
+  to {
+    top: -100vw;
+  }
 }
 
 #clickdrag img{
+  animation: fadeout 3s 2s forwards;
   width: 20vw;
   position: absolute;
   top: 5vh;

@@ -1,15 +1,5 @@
 
 
-//
-
-
-window.addEventListener("load", function() {
-  document.querySelector('#clickdrag').classList.add('fadeout');
-});
-
-window.setTimeout(function() {
-  document.querySelector('#clickdrag').classList.add('hidden')
-}, 2500);
 
 
 // Hide Header 
