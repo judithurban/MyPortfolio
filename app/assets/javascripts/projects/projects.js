@@ -1,5 +1,19 @@
 
+
+//
+
+
+window.addEventListener("load", function() {
+  document.querySelector('#clickdrag').classList.add('fadeout');
+});
+
+window.setTimeout(function() {
+  document.querySelector('#clickdrag').classList.add('hidden')
+}, 2500);
+
+
 // Hide Header 
+
 
 function classToggle() {
   const list = document.querySelector('.header-items-list')
@@ -87,7 +101,6 @@ function onMouseDown() {
 function openProject() {
   var img = this;
 
-  window.scrollTo(0, 0);
 
   if (img.dataset.hasBeenMoved === "true") {
     img.dataset.hasBeenMoved = "false";
@@ -98,6 +111,8 @@ function openProject() {
     var url = img.dataset.url;
     document.getElementById(linkName).classList.add("pf-item-on");
     window.history.pushState(null, "", "/projects/" + url);
+    window.scrollTo(0, 0);
+
   }
 
 }

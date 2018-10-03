@@ -40,6 +40,10 @@
   transition: transform ease-out 0.2s, box-shadow ease-out 0.2s;
 }
 
+.pf-prevbox::selection {
+  background: unset;
+}
+
 #pf-prevbox-item1 {
   grid-column: 1 / $pf-span-ls;
   grid-row: 1 / $pf-span-ls;
@@ -100,6 +104,26 @@
   transform: rotate(randomNum($rot-neg, $rot-pos) + deg);
 }
 
+/** MESSAGE **/
+
+
+.fadeout {
+  opacity: 0;
+  transition: 2s opacity;
+  z-index: 20;
+}
+
+#clickdrag img{
+  width: 20vw;
+  position: absolute;
+  top: 5vh;
+  right: 10vw;
+  z-index: 20;
+}
+
+.hidden {
+  display: none;
+}
 
 @media(max-width:720px) {
   .pf-section  {
@@ -131,7 +155,18 @@
     grid-column: 8 / $pf-span-pt;
     grid-row: 32 / span 5;
   }  
+
+  #clickdrag img{
+    position: absolute;
+    width: 180px;
+    top: 3px;
+    right: 10px;
+    z-index: 20;
+  }
 }
+
+
+
 
 .pf-prevbox:hover {
   transform: scale(1.1) !important;

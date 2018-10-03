@@ -25,8 +25,8 @@
         <span class="navbar-link-toggle" uk-icon="icon: table" aria-hidden="true"></span>
         <ul class="header-items-list header-items-list-hidden" uk-scrollspy-nav="closest: li; scroll: true">
           <li><%= link_to "portfolio", projects_path %></li>
-          <li><%= link_to "about", root_path(:anchor => 'about'), :"data-uk-smooth-scroll" => true %></li>
-          <li><%= link_to "contact", root_path(:anchor => 'contact'), :"data-uk-smooth-scroll" => true %></li>
+          <li><%= link_to "about", root_path(:anchor => 'about'), :"data-uk-smooth-scroll" => true, :class => "page-anchor" %></li>
+          <li><%= link_to "contact", root_path(:anchor => 'contact'), :"data-uk-smooth-scroll" => true, :class => "page-anchor" %></li>
         </ul>
       </div>
     </nav>
@@ -34,6 +34,7 @@
     </div>
 
     <footer>
+      <div id="privacy"><%= link_to "Privacy Policy", privacy_path %></div>
       <div>&copy; Judith Urban</div>
     </footer>
   </body>

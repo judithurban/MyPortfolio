@@ -1,10 +1,22 @@
+// Logging elements wider than the body element
+
+$.each($('*'), function() { if ($(this).width() > $('body').width()) { console.log($(this).get(0)); } }).length;
+
+
+function classToggle() {
+  const list = document.querySelector('.header-items-list')
+  list.classList.toggle('header-items-list-hidden');
+}
+
+document.querySelector('.navbar-link-toggle')
+  .addEventListener('click', classToggle);
 
 
 // Smooth Scrolling
 
 var $root = $('html, body');
 
-  $('nav a, .bounce').click(function onAnchorClick() {
+  $('.page-anchor, .bounce').click(function onAnchorClick() {
     var href = $.attr(this, 'href').slice(1);
 
     if (href != undefined && href != '#') {

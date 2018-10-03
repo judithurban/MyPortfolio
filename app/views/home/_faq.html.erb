@@ -1,38 +1,26 @@
 <div class="row-wrap-inline">
-  <h2 id="portfolio-head">Learn more</h2>
-</div>
-<div id="modal-portfolio" class="uk-modal-container" uk-modal>
-  <div class="uk-modal-dialog uk-margin-auto-vertical">
-    <button class="uk-modal-close-default" type="button" uk-close></button>
-    <div class="uk-modal-header">
-      <h3 class="uk-modal-title">Judiths Portfolio</h3>
-    </div>
-    <div class="uk-modal-body">
-      <embed id="modal-embed" src="data/Portfolio_Judith_Urban_XS.pdf"></embed>
-    </div>
-  </div>
+  <h2 id="portfolio-head">My approach to creating things</h2>
 </div>
 
 <ul uk-accordion>
   <li class="uk-open">
-    <a class="uk-accordion-title accordion-title" href="#">What's your goal as a web developer?</a>
+    <a class="uk-accordion-title accordion-title" href="#">Web Development</a>
     <div class="uk-accordion-content accordion-content">
-      <p>I embrace web technology and rely on best practise to get things done effectively and on time. I start with prototypes that show if things work, refining them further until they’re ready to roll out.
+      <p>As someone who's started out in the creative sector, I've internalized the design thinking approach. I've developed my skillset to embrace web technology (HTML, CSS, JavaScript) and I rely on best practise to get things done efficiently. 
       </p>
     </div>
-    </li>
-    <li>
-      <a class="uk-accordion-title" href="#">How does this go together with illustration?</a>
-      <div class="uk-accordion-content accordion-content">
-        <p>I get creative sketching and drawing out ideas. For my illustrations to become your eye-catchers, I use my intuition and rely on a variety of original styles. They often add the final touch that make a visual presence really outstanding.
-        </p>
-      </div>
   </li>
-    <li>
-      <a class="uk-accordion-title" href="#">I might have a project idea.</a>
-      <div class="uk-accordion-content accordion-content">
-        <p>Every online and offline experience that’s worth a second look has been designed. So let's meet up and turn the talk into the walk! I like to listen, take the time to find out more, to pin it all down to the key contents and get it out there. 
-        </p>
-      </div>
-    </li>
+  <li>
+  <a class="uk-accordion-title" href="#">Creative Consulting</a>
+  <div class="uk-accordion-content accordion-content">
+    <p>How does that fit together with design? Every online and offline experience that is worth a second look has been carefully designed. For me, being creative involves pinning information down to the key contents. I always look for the intuitive structure that works best for users.
+    </p>
+  </div>
+  </li>
+  <li>
+    <a class="uk-accordion-title" href="#">Illustration: Book me!</a>
+    <div class="uk-accordion-content accordion-content">
+      <p>Illustrations have the power to visualize things more directly. They can make a visual presence really outstanding. As a freelancer I am specialized in high-quality digital illustrations that and blend in perfectly with a given corporate design. Do you have a project in mind? <%= link_to "Get in touch", root_path(:anchor => 'contact'), :"data-uk-smooth-scroll" => true, :class => "page-anchor" %> and let's turn the talk into the walk. </p>
+    </div>
+  </li>
 </ul>

@@ -1,4 +1,5 @@
     <section class="pf-section">
+    <div id="clickdrag"><%= image_tag("drag.svg") %></div>
     <% @projects.each do |project| %>
       <%= image_tag(project.preview_image, class: "pf-prevbox", id:"pf-prevbox-item#{project.id}", draggable:"false", data: { link: "pf-item#{project.id}", url: project.url}) %>
     <% end %>
