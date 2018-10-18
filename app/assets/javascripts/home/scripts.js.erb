@@ -12,6 +12,7 @@ document.querySelector('.navbar-link-toggle')
   .addEventListener('click', classToggle);
 
 
+
 // Smooth Scrolling
 
 var $root = $('html, body');
@@ -52,7 +53,7 @@ $("#form-text").on("keyup", function(e) {
   }
 });
 
-$("#message-button").on("click",function() {
+ <%# $("#message-button").on("click",function() {
   var comment = $("#form-text").val();
   console.log(comment);
   console.log('clicked');
@@ -60,14 +61,13 @@ $("#message-button").on("click",function() {
     $("#Text").css("border-color", "red");
   }
   else  {
-    $("#message-comment").html("<h3>Here's what you wrote:</h3><p>" + comment + "</p><p>Thank you for your message. I'll reply shortly! :)</p>");
     $("fieldset, #message-button").hide();
     $("#char-count").hide();
   }
   return false;
   }
   
-);
+); %>
 
 
 //Google Map
