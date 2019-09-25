@@ -14,41 +14,6 @@
       At the moment, I'm only free for illustrative projects. Let's chat about things, just give me a call or drop me an email.
     </p>
 
-  <% if notice %>
-    <div class="alert-notice" uk-alert>
-      <h4>Thank you for your message.</h4>
-      <p id="email-notice"><%= notice %></p>
-      <a class="uk-alert-close" uk-close></a>
-    </div>
-  <% end %>
+
   </div>
 
-
-
-
-
-<%= form_tag("/handle_contact_request", method: "post", class: 'uk-width-2-3@m', id: 'message-form') do %>
-  <%= invisible_captcha :subtitle %>
-  
-  <fieldset class="uk-fieldset uk-form-stacked">
-    <label class="uk-form-label" for="form-name">Name*</label>
-    <div class="uk-form-controls uk-margin-bottom">
-      <input class="uk-input" id="form-name" type="text" required="required" name="form-name">
-    </div>
-    <label class="uk-form-label" for="form-email">Email*</label>
-    <div class="uk-form-controls uk-margin-bottom">
-      <input class="uk-input" id="form-email" type="email" required="required" name="form-email">
-    </div>
-    <label class="uk-form-label" for="form-phone">Phone number (optional)</label>
-    <div class="uk-form-controls uk-margin-bottom">
-      <input class="uk-input" id="form-phone" type="number" name="form-phone">
-    </div>
-    <label class="uk-form-label" for="form-text">Your message*</label>
-    <div class="uk-form-controls form-message">
-      <textarea class="uk-textarea" rows="5" id="form-text" placeholder="Tell me something!" required="required" name="form-text"></textarea>
-    </div>
-  </fieldset>
-  <p id="char-count"></p>
-  <button id="message-button" class="uk-button uk-button-default uk-margin-top button">Submit</button>
-  <div id="message-comment"></div>
-<% end %>

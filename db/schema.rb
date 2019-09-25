@@ -25,14 +25,10 @@ ActiveRecord::Schema.define(version: 2018_08_19_133052) do
   create_table "projects", force: :cascade do |t|
     t.string "title"
     t.text "description"
-    t.string "url"
-    t.string "customer"
-    t.string "creative_direction"
-    t.string "preview_image"
     t.string "link"
+    t.string "customer"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
 end
-#
